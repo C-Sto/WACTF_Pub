@@ -1,0 +1,11 @@
+{ "name" : "node-app"
+, "version" : "1.0.0"
+, "description" : "A app for apping apps"
+, "private": true
+, "dependencies": {
+    "express": "4.x"
+  }
+,  "scripts": {
+     "start": "node app.js"
+  }
+}
