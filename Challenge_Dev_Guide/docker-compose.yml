@@ -15,7 +15,7 @@ services:
     container_name: exp-3
     # This should be the directory your dockerfile exists in.
     # Note, other challenges will live in ./ too, so ensure your directory name is adequately unique (comapnyname-challengename)
-    build: ./your-python-app/
+    build: ./your-challenge/
     # Ports! the syntax is <external>:<containerlocal>
     # Ensure the external port is within the correct range. You can use whatever local port you wish (as long as it doesn't break anything)
     ports:

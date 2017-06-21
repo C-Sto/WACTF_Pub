@@ -17,7 +17,7 @@ This assumes a few things, and because you've been approached to contribute chal
 We've all played CTFs where the challenges have been super edge case or confusing and have left us frustrated. WACTF hopes to bring an element of realism into the CTF by modeling challenges from scenarios that aren't so far fetched. If you have a CTF idea that involves "z-base-32 encoded hex strings" it's unlikely going to be a good fit for WACTF. Some other things to keep in mind:
 
 - Avoid letting players get root (reasoning mentioned above)
-- TBD
+- People will be coming and going during the CTF
 
 The tier of challenge(s) you're developing correspond to the level of difficulty it's expected to be. As we have a defined scope for the players of this CTF we have provided some guidance to the level of difficulty below:
 
@@ -38,49 +38,38 @@ The Docker host will be in the AWS cloud. The base OS will be Ubuntu `16.04.2 LT
 
 **Prod version of Docker:**
 ```
-docker-ce | 17.03.1~ce-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64 Packages
+docker-ce | 17.03.1~ce-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64
 ```
 
-Follow Docker instructions on how to get this version on the Docker website. (eg https://docs.docker.com/engine/installation/linux/ubuntu/ )
-
-You can get this on Kali by doing the following:
-
-```
-echo \
- "deb [arch=amd64] \
- https://download.docker.com/linux/debian \
- stretch stable" > \
- /etc/apt/sources.list.d/docker.list
-curl -fsSL \
- https://download.docker.com/linux/debian/gpg | \
- sudo apt-key add -
-apt update
-apt install docker-ce=17.03.0*
-```
-
-Note that AppArmor on Debian may require a different setup process than what is included in this guide!
+Follow Docker instructions on how to get this version on the Docker website. ( https://docs.docker.com/engine/installation/linux/ubuntu/ )
 
 **Prod version of docker-compose:**
 ```
-version 1.13.0
+docker-compose version 1.14.0, build c7bdf9e
 ```
 ```
 version 3.0 YML syntax
 ```
 
-You can get the correct version of docker-compose by running the following (or clone it from GitHub):
+You can get the correct version of docker-compose by running the following:
 ```
-pip install docker-compose==1.13.0
+curl -L https://github.com/docker/compose/releases/download/1.14.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+```
+Or install it with pip (Note: The production host will use the above method ^^):
+```
+pip install docker-compose==1.14.0
 ```
 
 **Prod AppArmor profile:**
-https://github.com/moby/moby/tree/master/contrib/apparmor
-Commit `4bf7a84c969b9309b0534a61af55b8bb824acc0a`
 
-Docker containers use a default AppArmor profile ( https://docs.docker.com/engine/security/apparmor/ ) but we are taking an additional defense in depth step by also applying an AppArmor profile to the Docker host itself, this has the added benefit of better visibility of security events occurring on the host during the game. You're going to want to configure your dev environment to use the Docker host AppArmor profile to ensure it will work when merged into the production environment.
+Docker containers use a default AppArmor profile ( https://docs.docker.com/engine/security/apparmor/ ) but we are taking an additional defense in depth step by also applying an AppArmor profile to the Docker host itself. You're going to want to configure your dev environment to use the Docker host AppArmor profile to ensure it will work when merged into the production environment.
 
-Simply, grab the `Go` files from the repo above, spend some time getting Go configured on your dev machine, fix the dependency issues in the Go script by cloning some other repos. Compile and run it, get an AppArmor profile and enforce it on the Docker host daemon. **Better instructions coming... maybe**
+This repo has the AppArmor profile to use `docker-host-apparmor.txt`. Simply put it in `/etc/apparmor.d/` install `apt install apparmor-utils` and then enforce the profile `aa-enforce /etc/apparmor.d/docker-host-apparmor.txt`.
 
+You can check the status of AppArmor with `aa-status` to ensure all the docker profiles are in `enforce mode`. The AppArmor profile was built from here: https://github.com/moby/moby/tree/master/contrib/apparmor - commit `4bf7a84c969b9309b0534a61af55b8bb824acc0a`
+
+**Important Note**
 
  Get these versions of Docker/docker-compose/AppArmor profile to ensure that your challenge(s) will work as expected in the game environment. Other versions of Docker *may* work, but don't be that guy.
  _If a challenge doesn't work in QA, and we find out it's because of Docker versioning, we may choose to just scrap it from the game. Don't be that guy/girl._
