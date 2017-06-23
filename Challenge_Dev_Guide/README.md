@@ -17,7 +17,9 @@ This assumes a few things, and because you've been approached to contribute chal
 We've all played CTFs where the challenges have been super edge case or confusing and have left us frustrated. WACTF hopes to bring an element of realism into the CTF by modeling challenges from scenarios that aren't so far fetched. If you have a CTF idea that involves "z-base-32 encoded hex strings" it's unlikely going to be a good fit for WACTF. Some other things to keep in mind:
 
 - Avoid letting players get root (reasoning mentioned above)
-- People will be coming and going during the CTF
+- Don't build challenges that require extensive port scanning or directory brute-forcing - if you challenge requires port scanning make sure it is explicitly mentioned in the game description that players will read, or better yet, provide the expected `nmap` output as a supplementary for the player
+- The game will run over 2 days, 10 hours a day. People will be coming and going during the CTF, plan your challenges accordingly
+- 'err on the side of ease' when building challenges, and unless you're developing `Misc` category challenges, avoid building in rabbit holes and red herrings
 
 The tier of challenge(s) you're developing correspond to the level of difficulty it's expected to be. As we have a defined scope for the players of this CTF we have provided some guidance to the level of difficulty below:
 
