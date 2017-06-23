@@ -17,9 +17,10 @@ This assumes a few things, and because you've been approached to contribute chal
 We've all played CTFs where the challenges have been super edge case or confusing and have left us frustrated. WACTF hopes to bring an element of realism into the CTF by modeling challenges from scenarios that aren't so far fetched. If you have a CTF idea that involves "z-base-32 encoded hex strings" it's unlikely going to be a good fit for WACTF. Some other things to keep in mind:
 
 - Avoid letting players get root (reasoning mentioned above)
-- Don't build challenges that require extensive port scanning or directory brute-forcing - if you challenge requires port scanning make sure it is explicitly mentioned in the game description that players will read, or better yet, provide the expected `nmap` output as a supplementary for the player
-- The game will run over 2 days, 10 hours a day. People will be coming and going during the CTF, plan your challenges accordingly
+- Don't build challenge(s) that require extensive port scanning or directory brute-forcing - if you challenge requires port scanning make sure it is explicitly mentioned in the game description, or better yet, provide the expected `nmap` output as a supplementary for the player
+- The game will run over 2 days, 10 hours a day. People will be coming and going during the CTF, plan your challenge(s) accordingly
 - 'err on the side of ease' when building challenges, and unless you're developing `Misc` category challenges, avoid building in rabbit holes and red herrings
+- Once your challenge(s) have been delivered to us don't expect there to be time for you to QA and make changes - you should perform all your own QA before delivering your gold master to us
 
 The tier of challenge(s) you're developing correspond to the level of difficulty it's expected to be. As we have a defined scope for the players of this CTF we have provided some guidance to the level of difficulty below:
 
@@ -69,7 +70,7 @@ Docker containers use a default AppArmor profile ( https://docs.docker.com/engin
 
 This repo has the AppArmor profile to use `docker-host-apparmor.txt`. Simply put it in `/etc/apparmor.d/` install `apt install apparmor-utils` and then enforce the profile `aa-enforce /etc/apparmor.d/docker-host-apparmor.txt`.
 
-You can check the status of AppArmor with `aa-status` to ensure all the docker profiles are in `enforce mode`. The AppArmor profile was built from here: https://github.com/moby/moby/tree/master/contrib/apparmor - commit `4bf7a84c969b9309b0534a61af55b8bb824acc0a`
+You can check the status of AppArmor with `aa-status` to ensure all the docker profiles are in `enforce mode`. The AppArmor profile was built from here: https://github.com/moby/moby/tree/master/contrib/apparmor commit `4bf7a84`.
 
 **Important Note**
 
