@@ -33,7 +33,7 @@ The tier of challenge(s) you're developing correspond to the level of difficulty
 
 ## Expected deliverable
 
-Refer to `Challenge Documentation Standard v*.docx` in this repo. Ensure your deliverable meets the requirements!
+Refer to `Challenge Documentation Standard v*.docx` for a run through and example. You can submit your documentation in either the Word document or the `Challenge Doco v*.md` slim version. Ensure your deliverable meets the requirements!
 
 ## Docker, Docker Compose & Host AppArmor
 
@@ -106,7 +106,7 @@ If you need more than 100 ports, let us know and we can work something out.
 
 ## Flag Format
 
-Flag format is: `WACTF{FLAG_OF_YOUR_CHOICE}` - For challenges that players may be able to `strings` (or similar) the flag when you don't want them to, you can specify your own flag format, ensure this is documented in the challenge doco provided with your deliverable.
+Flag format is: `WACTF{FLAG_OF_YOUR_CHOICE}` (obviously nothing that could be considered generally offensive) - For challenges that players may be able to `strings` (or similar) the flag when you don't want them to, you can specify your own flag format, ensure this is documented in the challenge doco provided with your deliverable.
 
 ## What Now?
 
