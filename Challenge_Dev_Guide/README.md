@@ -26,7 +26,7 @@ The tier of challenge(s) you're developing correspond to the level of difficulty
 
 | Tier | Expected Difficulty|
 |----|----|
-|0| Solvable by anyone with a decent level of problem solving skill. Google searched should lead to solves|
+|0| Solvable by anyone with a decent level of problem solving skill. Google searches should lead to solves|
 |1| Solvable by anyone with a decent level of problem solving skill. High school students should fare well|
 |2| Solvable by those with limited cyber security skill, such as early Comp Sci / Cyber Sec University / TAFE students or people who have completed a CTF (such as Pico) before|
 |3| Solvable by students close to completing higher education (or recent graduates) and who have participated in CTFs or have taken cyber security training before|
