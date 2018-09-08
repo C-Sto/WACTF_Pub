@@ -26,6 +26,7 @@ The tier of challenge(s) you're developing correspond to the level of difficulty
 
 | Tier | Expected Difficulty|
 |----|----|
+|0| Solvable by anyone with a decent level of problem solving skill. Google searched should lead to solves|
 |1| Solvable by anyone with a decent level of problem solving skill. High school students should fare well|
 |2| Solvable by those with limited cyber security skill, such as early Comp Sci / Cyber Sec University / TAFE students or people who have completed a CTF (such as Pico) before|
 |3| Solvable by students close to completing higher education (or recent graduates) and who have participated in CTFs or have taken cyber security training before|
@@ -33,7 +34,7 @@ The tier of challenge(s) you're developing correspond to the level of difficulty
 
 ## Expected deliverable
 
-Refer to `Challenge Documentation Standard v*.docx` for a run through and example. You can submit your documentation in either the Word document or the `Challenge Doco v*.md` slim version. Ensure your deliverable meets the requirements!
+Submit your documentation via the `Challenge Doco v*.md` document. Ensure your deliverable meets the requirements!
 
 ## Docker, Docker Compose & Host AppArmor
 
@@ -106,7 +107,7 @@ If you need more than 100 ports, let us know and we can work something out.
 
 ## Flag Format
 
-Flag format is: `WACTF{FLAG_OF_YOUR_CHOICE}` (obviously nothing that could be considered generally offensive) - For challenges that players may be able to `strings` (or similar) the flag when you don't want them to, you can specify your own flag format, ensure this is documented in the challenge doco provided with your deliverable.
+Flag format is: `WACTF2{FLAG_OF_YOUR_CHOICE}` (obviously nothing that could be considered generally offensive) - For challenges that players may be able to `strings` (or similar) the flag when you don't want them to, you can specify your own flag format, ensure this is documented in the challenge doco provided with your deliverable.
 
 ## What Now?
 
