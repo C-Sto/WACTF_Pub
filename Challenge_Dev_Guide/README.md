@@ -38,18 +38,20 @@ Submit your documentation via the `Challenge Doco v*.md` document. Ensure your d
 
 ## Docker, Docker Compose & Host AppArmor
 
-The Docker host will be in the AWS cloud. The base OS will be Ubuntu `18.04.01 LTS`
+**Note:** A handy vagrantfile for the base OS, and setup script to get the right environment can be found in the Automation directory.
+
+The Docker host will be in the AWS cloud. The base OS will be Ubuntu `18.04 LTS`
 
 **Prod version of Docker:**
 ```
-docker-ce | 18.06.1~ce~3-0~ubuntu | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
+docker-ce | 5:18.09.7~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
 ```
 
 Follow Docker instructions on how to get this version on the Docker website. ( https://docs.docker.com/engine/installation/linux/ubuntu/ )
 
 **Prod version of docker-compose:**
 ```
-docker-compose version 1.22.0, build f46880fe
+docker-compose version 1.24.0
 ```
 ```
 version 3.0 YML syntax
@@ -57,12 +59,12 @@ version 3.0 YML syntax
 
 You can get the correct version of docker-compose by running the following:
 ```
-curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
 Or install it with pip (Note: The production host will use the above method ^^):
 ```
-pip install docker-compose==1.22.0
+pip install docker-compose==1.24.0
 ```
 
 **Prod AppArmor profile:**
