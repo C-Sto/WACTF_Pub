@@ -109,7 +109,7 @@ If you need more than 100 ports, let us know and we can work something out.
 
 ## Flag Format
 
-Flag format is: `WACTF2{FLAG_OF_YOUR_CHOICE}` (obviously nothing that could be considered generally offensive) - For challenges that players may be able to `strings` (or similar) the flag when you don't want them to, you can specify your own flag format, ensure this is documented in the challenge doco provided with your deliverable.
+Flag format is: `WACTF3{FLAG_OF_YOUR_CHOICE}` (obviously nothing that could be considered generally offensive) - For challenges that players may be able to `strings` (or similar) the flag when you don't want them to, you can specify your own flag format, ensure this is documented in the challenge doco provided with your deliverable.
 
 ## What Now?
 
