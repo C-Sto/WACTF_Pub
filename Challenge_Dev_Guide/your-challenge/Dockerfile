@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app.py ./
 
 # Create non-root user
-RUN adduser --system --shell /bin/false --no-create-home --group --disabled-login --disabled-password python-ap
+RUN adduser --system --shell /bin/false --no-create-home --group --disabled-login --disabled-password python-app
 
 # Running as non-root user, add read privileges to the app
 RUN chown root:python-app ./ -R
