@@ -28,9 +28,13 @@ services:
   web-3:
     container_name: web-3
     build: ./some-other-challenge-2/
+    # Allow port 80 to be bound to a non-privileged process (rather than reconfiguring Apache to use a different port)
+    sysctls:
+        net.ipv4.ip_unprivileged_port_start: 0
     ports:
       - 1300:80
 
+  # Note: You won't be running containers as root, so you can't bind to a port below 1024. When choosing a local port, choose any port above 1024.
   crypto-2:
     container_name: crypto-2
     build: ./some-other-challenge/
