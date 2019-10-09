@@ -26,6 +26,7 @@ The tier of challenge(s) you're developing correspond to the level of difficulty
 
 | Tier | Expected Difficulty|
 |----|----|
+|0| Solvable by anyone with a decent level of problem solving skill. Google searches should lead to solves|
 |1| Solvable by anyone with a decent level of problem solving skill. High school students should fare well|
 |2| Solvable by those with limited cyber security skill, such as early Comp Sci / Cyber Sec University / TAFE students or people who have completed a CTF (such as Pico) before|
 |3| Solvable by students close to completing higher education (or recent graduates) and who have participated in CTFs or have taken cyber security training before|
@@ -33,22 +34,24 @@ The tier of challenge(s) you're developing correspond to the level of difficulty
 
 ## Expected deliverable
 
-Refer to `Challenge Documentation Standard v*.docx` for a run through and example. You can submit your documentation in either the Word document or the `Challenge Doco v*.md` slim version. Ensure your deliverable meets the requirements!
+Submit your documentation via the `Challenge Doco v*.md` document. Ensure your deliverable meets the requirements!
 
 ## Docker, Docker Compose & Host AppArmor
 
-The Docker host will be in the AWS cloud. The base OS will be Ubuntu `16.04.2 LTS`
+**Note:** A handy vagrantfile for the base OS, and setup script to get the right environment can be found in the Automation directory.
+
+The Docker host will be in the AWS cloud. The base OS will be Ubuntu `18.04 LTS`
 
 **Prod version of Docker:**
 ```
-docker-ce | 17.03.1~ce-0~ubuntu-xenial | https://download.docker.com/linux/ubuntu xenial/stable amd64
+docker-ce | 5:18.09.7~3-0~ubuntu-bionic | https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages
 ```
 
 Follow Docker instructions on how to get this version on the Docker website. ( https://docs.docker.com/engine/installation/linux/ubuntu/ )
 
 **Prod version of docker-compose:**
 ```
-docker-compose version 1.14.0, build c7bdf9e
+docker-compose version 1.24.0
 ```
 ```
 version 3.0 YML syntax
@@ -56,12 +59,12 @@ version 3.0 YML syntax
 
 You can get the correct version of docker-compose by running the following:
 ```
-curl -L https://github.com/docker/compose/releases/download/1.14.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
 Or install it with pip (Note: The production host will use the above method ^^):
 ```
-pip install docker-compose==1.14.0
+pip install docker-compose==1.24.0
 ```
 
 **Prod AppArmor profile:**
@@ -106,7 +109,7 @@ If you need more than 100 ports, let us know and we can work something out.
 
 ## Flag Format
 
-Flag format is: `WACTF{FLAG_OF_YOUR_CHOICE}` (obviously nothing that could be considered generally offensive) - For challenges that players may be able to `strings` (or similar) the flag when you don't want them to, you can specify your own flag format, ensure this is documented in the challenge doco provided with your deliverable.
+Flag format is: `WACTF3{FLAG_OF_YOUR_CHOICE}` (obviously nothing that could be considered generally offensive) - For challenges that players may be able to `strings` (or similar) the flag when you don't want them to, you can specify your own flag format, ensure this is documented in the challenge doco provided with your deliverable.
 
 ## What Now?
 
