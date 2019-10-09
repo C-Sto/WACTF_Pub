@@ -17,9 +17,8 @@ services:
     # This should be the directory your dockerfile exists in.
     # Note, other challenges will live in ./ too, so ensure your directory name is adequately unique (comapnyname-challengename)
     build: ./your-challenge/
-    # Your challenges need to be tagged for pushing to our docker registry. The syntax is <domain>/<wactfyear>_<container name>
-    # You can't use hyphens or special characters. Leave the domain portion.
-    image: registry.capture.tf/wactf3_exp3
+    # Your challenges need to be tagged for pushing to our docker registry. The syntax is <domain>/wactf3/<container name>. Leave the domain portion as is.
+    image: registry.capture.tf/wactf3/exp-3
     # Ports! the syntax is <external>:<containerlocal>
     # Ensure the external port is within the correct range. You can use whatever local port you wish (as long as it doesn't break anything)
     ports:
@@ -31,13 +30,13 @@ services:
   web-3:
     container_name: web-3
     build: ./some-other-challenge-2/
-    image: registry.capture.tf/wactf3_web3
+    image: registry.capture.tf/wactf3/web-3
     ports:
       - 1300:80
 
   crypto-2:
     container_name: crypto-2
-    image: registry.capture.tf/wactf3_crypto2
+    image: registry.capture.tf/wactf3/crypto-2
     build: ./some-other-challenge/
     ports:
       - 3200:10000
