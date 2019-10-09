@@ -1,21 +1,25 @@
 # The docker-compose file you deliver needs to:
 # - Define which ports are exposed, and what they map to in your challenge
-# - Name the container
+# - Name and tag the container for use on the docker registry
 # - Define the folder that your dockerfile (and challenge source code) exists in
 
-# The version MUST be 3. If you test on a docker-compose that's not 3, it won't go nicely.
+# The version MUST be 3.
 version: '3'
 
 # This is general structure of the docker-compose file that will be used in prod
 services:
 
 # Name is <category>-<tier>
+# If there's another developer building a challenge that shares your category and tier, one of you should use the naming scheme <category>-<tier>-<#> throughout i.e. exp-3-2
   exp-3:
   # Your container name is <category>-<tier>
     container_name: exp-3
     # This should be the directory your dockerfile exists in.
     # Note, other challenges will live in ./ too, so ensure your directory name is adequately unique (comapnyname-challengename)
     build: ./your-challenge/
+    # Your challenges need to be tagged for pushing to our docker registry. The syntax is <domain>/<wactfyear>_<container name>
+    # You can't use hyphens or special characters. Leave the domain portion.
+    image: registry.capture.tf/wactf3_exp3
     # Ports! the syntax is <external>:<containerlocal>
     # Ensure the external port is within the correct range. You can use whatever local port you wish (as long as it doesn't break anything)
     ports:
@@ -27,11 +31,13 @@ services:
   web-3:
     container_name: web-3
     build: ./some-other-challenge-2/
+    image: registry.capture.tf/wactf3_web3
     ports:
       - 1300:80
 
   crypto-2:
     container_name: crypto-2
+    image: registry.capture.tf/wactf3_crypto2
     build: ./some-other-challenge/
     ports:
       - 3200:10000
