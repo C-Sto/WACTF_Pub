@@ -1,1 +1,1 @@
-pypiserver==1.2.0
+pypiserver==1.2.6
