@@ -24,6 +24,14 @@ services:
     # Note: You won't be running containers as root, so you can't bind to a port below 1024. When choosing a local port, choose any port above 1024.
     ports:
       - 4300:2222
+    deploy:
+      resources:
+        limits:
+          cpus: '0.10'
+          memory: 180M
+        reservations:
+          cpus: '0.05'
+          memory: 10M
 
   # From here onwards is demonstrating how other peoples challenges will be loaded adjacent to yours
   # We will only have one docker-compose file, concatenating all participants docker-compose files together to build the production document
@@ -37,6 +45,14 @@ services:
     image: registry.capture.tf/wactf3/web-3
     ports:
       - 1300:80
+    deploy:
+      resources:
+        limits:
+          cpus: '0.10'
+          memory: 180M
+        reservations:
+          cpus: '0.05'
+          memory: 10M
 
   # Note: You won't be running containers as root, so you can't bind to a port below 1024. When choosing a local port, choose any port above 1024.
   crypto-2:
@@ -45,3 +61,11 @@ services:
     build: ./some-other-challenge/
     ports:
       - 3200:10000
+    deploy:
+      resources:
+        limits:
+          cpus: '0.10'
+          memory: 180M
+        reservations:
+          cpus: '0.05'
+          memory: 10M
