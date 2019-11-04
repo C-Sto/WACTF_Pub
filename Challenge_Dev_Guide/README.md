@@ -2,21 +2,22 @@
 
 _Any questions/queries can be directed to C_Sto on the challenge development Slack_
 
-This is some basic documentation on how to build your challenge(s) so they work in harmony with the others and in the production Docker environment. This repo demonstrates how the entire games directory structure is to look like. We've provided you a set of sample files that represent different challenges to show how your contribution is expected to fit in with the other ones!
+This is some basic documentation on how to build your challenge(s) so they work in harmony with the others and in the production Docker environment. This repo demonstrates how the entire games directory structure is to look like. We've provided you a set of sample files that represent different challenges to show how your contribution is expected to fit in with the other ones! **Note: Don't use the Dockerfile's in the sample challenges.** They are old and don't conform to the container restrictions WACTF have. See `Example-Dockerfiles` directory for info.
 
 This assumes a few things, and because you've been approached to contribute challenge(s), we're sure you can handle it.
 
 - That you know what Docker is, or, that you are capable of googling,
 - You understand you can't run a Windows container on an Ubuntu host Docker,
-- You understand there will only be one container per challenge and that the game organisers won't be expected to revert it when it gets rooted and `rm -rf`'ed,
+- You understand that WACTF's Disater Recovery plan involves reverting to one container per challenge used by all teams and that the game organisers won't be expected to revert it when it gets rooted and `rm -rf`'ed,
 - You can follow instructions to install Docker good, and
 - You know what category and tier challenge(s) you are working on
+- You will deliver your challenge(s) by the delivery deadline or accept a public lashing
 
 ## Challenge Difficulty
 
 We've all played CTFs where the challenges have been super edge case or confusing and have left us frustrated. WACTF hopes to bring an element of realism into the CTF by modeling challenges from scenarios that aren't so far fetched. If you have a CTF idea that involves "z-base-32 encoded hex strings" it's unlikely going to be a good fit for WACTF. Some other things to keep in mind:
 
-- Avoid letting players get root (reasoning mentioned above)
+- See the container restrictions in the `Example-Dockerfiles` directory
 - Don't build challenge(s) that require extensive port scanning or directory brute-forcing - if you challenge requires port scanning make sure it is explicitly mentioned in the game description, or better yet, provide the expected `nmap` output as a supplementary for the player
 - The game will run over 2 days, 10 hours a day. People will be coming and going during the CTF, plan your challenge(s) accordingly
 - 'err on the side of ease' when building challenges, and unless you're developing `Misc` category challenges, avoid building in rabbit holes and red herrings
@@ -40,7 +41,7 @@ Submit your documentation via the `Challenge Doco v*.md` document. Ensure your d
 
 **Note:** A handy vagrantfile for the base OS, and setup script to get the right environment can be found in the Automation directory.
 
-The Docker host will be in the AWS cloud. The base OS will be Ubuntu `18.04 LTS`
+The Docker host will be in some cloud. The base OS will be Ubuntu `18.04 LTS` (probably)
 
 **Prod version of Docker:**
 ```
@@ -77,14 +78,11 @@ You can check the status of AppArmor with `aa-status` to ensure all the docker p
 
 **Important Note**
 
- Get these versions of Docker/docker-compose/AppArmor profile to ensure that your challenge(s) will work as expected in the game environment. Other versions of Docker *may* work, but don't be that guy.
- _If a challenge doesn't work in QA, and we find out it's because of Docker versioning, we may choose to just scrap it from the game. Don't be that guy/girl._
+Get these versions of Docker/docker-compose/AppArmor profile to ensure that your challenge(s) will work as expected in the game environment. Other versions of Docker *may* work, but don't be that guy.
+ 
+## Autonomy
 
-
- ## Autonomy
-
- Your challenge(s) are expected to work out-of-the-box.
- A game organiser should only need to run `docker-compose up` and your Dockerfile/docker-compose file should execute any startup scripts necessary to bring the challenge to its fully working state.
+Your challenge(s) are expected to work out-of-the-box. A game organiser should only need to run `docker-compose up` and your Dockerfile/docker-compose file should execute any startup scripts necessary to bring the challenge to its fully working state.
 
 ## Port Ranges
 
