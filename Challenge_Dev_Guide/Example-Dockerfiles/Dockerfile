@@ -11,7 +11,7 @@ RUN apk add --no-cache
 #RUN apk del/add apkname
 
 # create a new user and group
-RUN addgroup -S mygroup  && adduser -S myuser -G mygroup
+RUN adduser -S -s /bin/false -H -D user
 
 # if you don't need a user with any interactivity you can do something like this instead
 #RUN addgroup -S mygroup && adduser --system --shell /bin/nologin --no-create-home -G mygroup --disabled-password myuser

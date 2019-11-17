@@ -32,6 +32,8 @@ services:
         reservations:
           cpus: '0.05'
           memory: 10M
+    cap_drop:
+      - NET_RAW
 
   # From here onwards is demonstrating how other peoples challenges will be loaded adjacent to yours
   # We will only have one docker-compose file, concatenating all participants docker-compose files together to build the production document
@@ -53,6 +55,8 @@ services:
         reservations:
           cpus: '0.05'
           memory: 10M
+    cap_drop:
+      - NET_RAW
 
   # Note: You won't be running containers as root, so you can't bind to a port below 1024. When choosing a local port, choose any port above 1024.
   crypto-2:
@@ -69,3 +73,5 @@ services:
         reservations:
           cpus: '0.05'
           memory: 10M
+    cap_drop:
+      - NET_RAW
